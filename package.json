@@ -1,12 +1,13 @@
 {
-  "name": "dashboard-api",
-  "version": "1.0.0",
-  "description": "API для учебного проекта 4-NodeJS",
-  "main": "index.js",
+  "name": "my-app",
+  "private": true,
   "type": "module",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "node ./dist/main.js",
-    "build": "tsc"
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
   },
   "author": "Anton Larichev",
   "license": "ISC",
