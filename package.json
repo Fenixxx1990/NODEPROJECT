@@ -1,18 +1,20 @@
 {
   "name": "my-app",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/index.js"
+    "start": "node dist/main.js"
   },
   "author": "Anton Larichev",
   "license": "ISC",
   "dependencies": {
     "express": "^4.22.1",
+    "inversify": "^7.11.0",
+    "reflect-metadata": "^0.2.2",
     "tslog": "^4.10.2"
   },
   "devDependencies": {
