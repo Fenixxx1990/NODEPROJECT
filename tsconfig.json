@@ -12,7 +12,7 @@
 		"skipLibCheck": true,
 		"outDir": "dist",
 		"rootDir": "src",
-		// "sourceMap": true,
+		"sourceMap": true,
 		"strictPropertyInitialization": false
 	},
 	"include": ["src"]
