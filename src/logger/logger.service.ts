@@ -5,26 +5,26 @@ import "reflect-metadata";
 
 @injectable()
 export class LoggerService implements ILogger {
-  public logger: Logger<ILogObj>;
+	public logger: Logger<ILogObj>;
 
-  constructor() {
-    const loggerTemplate = "{{yyyy}}-{{mm}}-{{dd}} {{hh}}:{{MM}}:{{ss}} {{logLevelName}}: ";
+	constructor() {
+		const loggerTemplate = "{{yyyy}}-{{mm}}-{{dd}} {{hh}}:{{MM}}:{{ss}} {{logLevelName}}: ";
 
-    this.logger = new Logger({
-      prettyLogTemplate: loggerTemplate,
-    });
-  }
+		this.logger = new Logger({
+			prettyLogTemplate: loggerTemplate,
+		});
+	}
 
-  log(...args: unknown[]) {
-    this.logger.info(...args);
-  }
+	log(...args: unknown[]): void {
+		this.logger.info(...args);
+	}
 
-  error(...args: unknown[]) {
-    // отправка в sentry / rollbar
-    this.logger.error(...args);
-  }
+	error(...args: unknown[]): void {
+		// отправка в sentry / rollbar
+		this.logger.error(...args);
+	}
 
-  warn(...args: unknown[]) {
-    this.logger.warn(...args);
-  }
+	warn(...args: unknown[]): void {
+		this.logger.warn(...args);
+	}
 }

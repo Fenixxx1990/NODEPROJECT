@@ -8,18 +8,23 @@ import { TYPES } from "./types.js";
 import { IExeptionFilter } from "./errors/exeption.filter.interface.js";
 import { IUserController } from "./users/users.controller.interface.js";
 
-function bootstrap() {
-  const appContainer = new Container();
+export interface IBootSrtapReturn {
+	appContainer: Container;
+	app: App;
+}
 
-  appContainer.bind<ILogger>(TYPES.ILogger).to(LoggerService);
-  appContainer.bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
-  appContainer.bind<IUserController>(TYPES.UserController).to(UserController);
-  appContainer.bind<App>(TYPES.Application).to(App);
+function bootstrap(): IBootSrtapReturn {
+	const appContainer = new Container();
 
-  const app = appContainer.get<App>(TYPES.Application);
-  app.init();
+	appContainer.bind<ILogger>(TYPES.ILogger).to(LoggerService);
+	appContainer.bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
+	appContainer.bind<IUserController>(TYPES.UserController).to(UserController);
+	appContainer.bind<App>(TYPES.Application).to(App);
 
-  return { appContainer, app };
+	const app = appContainer.get<App>(TYPES.Application);
+	app.init();
+
+	return { appContainer, app };
 }
 
 export const { app, appContainer } = bootstrap();
