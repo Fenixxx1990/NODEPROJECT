@@ -7,6 +7,7 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "tsc",
+		"dev": "nodemon",
 		"lint": "eslint ./src/**",
 		"lint:fix": "eslint ./src/** --fix",
 		"start": "node dist/main.js"
@@ -31,7 +32,9 @@
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-prettier": "^5.5.5",
 		"globals": "^17.4.0",
+		"nodemon": "^3.1.14",
 		"prettier": "^3.8.1",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.56.1"
 	}
