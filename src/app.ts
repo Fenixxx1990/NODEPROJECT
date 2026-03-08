@@ -5,7 +5,6 @@ import { ILogger } from "./logger/logger.interface";
 import { UserController } from "./users/users.controller";
 import { inject, injectable } from "inversify";
 import { TYPES } from "./types";
-import { json } from "body-parser";
 import "reflect-metadata";
 
 @injectable()
@@ -24,7 +23,7 @@ export class App {
 	}
 
 	useMiddleware(): void {
-		this.app.use(json());
+		this.app.use(express.json());
 	}
 
 	useRoutes(): void {

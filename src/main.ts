@@ -7,6 +7,8 @@ import { ILogger } from "./logger/logger.interface";
 import { TYPES } from "./types";
 import { IExeptionFilter } from "./errors/exeption.filter.interface";
 import { IUserController } from "./users/users.controller.interface";
+import { IUserService } from "./users/user.service.interface";
+import { UserService } from "./users/users.service";
 
 export interface IBootSrtapReturn {
 	appContainer: Container;
@@ -19,6 +21,7 @@ function bootstrap(): IBootSrtapReturn {
 	appContainer.bind<ILogger>(TYPES.ILogger).to(LoggerService);
 	appContainer.bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
 	appContainer.bind<IUserController>(TYPES.UserController).to(UserController);
+	appContainer.bind<IUserService>(TYPES.UserService).to(UserService);
 	appContainer.bind<App>(TYPES.Application).to(App);
 
 	const app = appContainer.get<App>(TYPES.Application);
