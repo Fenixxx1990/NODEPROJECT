@@ -1,4 +1,9 @@
 {
+	"plugins": ["prettier-plugin-prisma"],
+	"prisma": {
+		"bracketSpacing": true,
+		"semi": true
+	},
 	"trailingComma": "all",
 	"useTabs": true,
 	"semi": true,

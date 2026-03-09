@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "ES2022",
+		"target": "es2020",
 		"module": "commonjs",
 		// "moduleResolution": "Bundler", // или "NodeNext" (см. примечание ниже)
 		"resolveJsonModule": true,

@@ -4,5 +4,10 @@
 	},
 	"editor.formatOnSave": {
 		"source.fixAll.eslint": true
+	},
+	"prisma.pinToPrisma6": true,
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma",
+		"editor.formatOnSave": true
 	}
 }

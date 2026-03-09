@@ -11,6 +11,7 @@ import { IUserService } from "./users/user.service.interface";
 import { UserService } from "./users/users.service";
 import { IConfigService } from "./config/config.service.interface";
 import { ConfigService } from "./config/config.service";
+import { PrismaService } from "./database/prisma.service";
 
 export interface IBootSrtapReturn {
 	appContainer: Container;
@@ -24,6 +25,7 @@ function bootstrap(): IBootSrtapReturn {
 	appContainer.bind<IExeptionFilter>(TYPES.ExeptionFilter).to(ExeptionFilter);
 	appContainer.bind<IUserController>(TYPES.UserController).to(UserController);
 	appContainer.bind<IUserService>(TYPES.UserService).to(UserService);
+	appContainer.bind<PrismaService>(TYPES.PrismaService).to(PrismaService).inSingletonScope();
 	appContainer.bind<IConfigService>(TYPES.ConfigService).to(ConfigService).inSingletonScope();
 	appContainer.bind<App>(TYPES.Application).to(App);
 
