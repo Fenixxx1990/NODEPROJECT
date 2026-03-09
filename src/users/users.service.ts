@@ -32,4 +32,11 @@ export class UserService implements IUserService {
 		const newUser = new User(existedUser.email, existedUser.name, existedUser.password);
 		return await newUser.comparePassword(password);
 	}
+
+	async getUserInfo(email: string | undefined): Promise<UserModel | null> {
+		if (!email) {
+			return null;
+		}
+		return this.usersRepository.find(email);
+	}
 }
