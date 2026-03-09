@@ -30,7 +30,7 @@ export class UserService implements IUserService {
 			return false;
 		}
 		const newUser = new User(existedUser.email, existedUser.name, existedUser.password);
-		return await newUser.comparePassword(password);
+		return newUser.comparePassword(password);
 	}
 
 	async getUserInfo(email: string | undefined): Promise<UserModel | null> {
