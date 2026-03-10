@@ -20,7 +20,7 @@ export interface IBootSrtapReturn {
 	app: App;
 }
 
-function bootstrap(): IBootSrtapReturn {
+async function bootstrap(): Promise<IBootSrtapReturn> {
 	const appContainer = new Container();
 
 	appContainer.bind<ILogger>(TYPES.ILogger).to(LoggerService).inSingletonScope();
@@ -33,9 +33,9 @@ function bootstrap(): IBootSrtapReturn {
 	appContainer.bind<App>(TYPES.Application).to(App);
 
 	const app = appContainer.get<App>(TYPES.Application);
-	app.init();
+	await app.init();
 
 	return { appContainer, app };
 }
 
-export const { app, appContainer } = bootstrap();
+export const boot = bootstrap();
